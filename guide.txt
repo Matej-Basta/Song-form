@@ -1,0 +1,29 @@
+CREATE
+----------
+prepare empty data
+display form
+
+EDIT
+----------
+prepare existing data
+display form
+
+STORE
+----------
+prepare empty data
+fill it from request
+save the data
+redirect
+
+UPDATE
+----------
+prepare existing data
+fill it from request
+save the data
+redirect
+
+DELETE
+----------
+prepare existing data
+delete it
+redirect
