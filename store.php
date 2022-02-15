@@ -5,6 +5,7 @@
 
 require_once "Song.php";
 require_once "DBBlackbox.php";
+require_once "Session.php";
 
 //prepare empty data
 
@@ -22,6 +23,8 @@ var_dump($song);
 //save the data
 
 $id = insert($song);
+
+Session::instance()->flash("success_message", "Song successfully saved.");
 
 //redirect
 

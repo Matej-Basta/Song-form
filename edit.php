@@ -5,7 +5,11 @@
 
 require_once "DBBlackbox.php";
 require_once "Song.php";
+require_once "Session.php";
 
+
+$session = Session::instance();
+// var_dump($session);
 
 //get id of the song to edit from the URL
 $id = $_GET["id"];
@@ -21,6 +25,8 @@ $genres = [
 ];
 
 
+
+
 //display the from prefilled with the data about the existing song
 ?>
 
@@ -34,6 +40,24 @@ $genres = [
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+    <?php if ($errors = Session::instance()->get("errors")) : ?>
+<?php foreach ($errors as $error) : ?>
+        <div class="error">
+            <?= $error ?>
+        </div>
+
+        <?php endforeach; ?>
+
+    <?php endif; ?>
+
+    <?php if ($message = Session::instance()->get("success_message")) : ?>
+
+        <div class="success">
+            <?= $message ?>
+        </div>
+
+    <?php endif; ?>
 
     <form action="update.php?id=<?= $song->id ?>" method="post">
 
